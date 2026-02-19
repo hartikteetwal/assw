@@ -1,16 +1,16 @@
 import { products } from "@/lib/products";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-    console.log("id",req.query)
-    const { id } = req.query;
+export async function GET(req:NextRequest,{params}:{params:Promise<{id:string}>}) {
+
+    const {id}  = await params;
 
     const product = products.find(e => e.id === id)
 
     if (!product) {
-        return res.json({ message: 'Product not found' })
+        return NextResponse.json({ message: 'Product not found' })
     }
 
-    return res.json(product)
+    return NextResponse.json(product)
 }

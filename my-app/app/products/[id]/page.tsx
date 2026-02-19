@@ -1,7 +1,7 @@
 import { Product } from "@/lib/product"
 import { notFound } from "next/navigation"
 
-export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic"
 
 
 export const getProduct = async (id:string): Promise<Product|undefined> => {
