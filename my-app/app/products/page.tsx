@@ -20,7 +20,7 @@ const getProducts = async () => {
     const products = await getProductData()
     console.log(products,"products")
   return (
-      <div className="min-h-screen px-[100px] bg-gray-50">
+      <div className="min-h-screen max-w-6xl mx-auto  mt-4 px-4">
       
       <h1 className="text-3xl font-bold mb-6">
         All Products

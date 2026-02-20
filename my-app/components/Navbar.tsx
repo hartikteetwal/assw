@@ -12,7 +12,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6 text-gray-700">
+        <nav className="flex items-center gap-6 text-gray-700">
             <>
               <Link href="/products">Products</Link>
               <Link href="/about">About</Link>

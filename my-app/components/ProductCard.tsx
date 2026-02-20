@@ -1,12 +1,15 @@
 'use client'
 import { Product } from "@/lib/product"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function ProductCard({ product }:{product:Product}) {
+
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
       
       {/* Image Section */}
+      <Link href={`/products/${product.id}`} className="relative w-full h-52 block">
       <div className="relative w-full h-52 bg-gray-100">
         <Image
           src={product.image}
@@ -15,6 +18,7 @@ export default function ProductCard({ product }:{product:Product}) {
           className="object-cover group-hover:scale-105 transition duration-300"
         />
       </div>
+      </Link>
 
       {/* Content Section */}
       <div className="p-4">
