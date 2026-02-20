@@ -1,3 +1,4 @@
+import { AddToCartButton } from "@/components/AddToCartButton"
 import ProductPrice from "@/components/ProductPrice"
 import { getProduct } from "@/lib/getProduct"
 import { Product } from "@/lib/product"
@@ -24,6 +25,7 @@ const ProductPage = async ({ params }: PageProps) => {
             <Suspense fallback={<p>Loading price...</p>}>
                 <ProductPrice id={id} />
             </Suspense>
+            <AddToCartButton product={product}/>
         </div>
     )
 }
