@@ -1,24 +1,25 @@
 import { Product } from '@/lib/product'
 import ProductCard from '../../components/ProductCard'
-// import { products } from '@/lib/products'
+import { getProductData } from '@/lib/getProduct'
+import { products } from '@/lib/products'
 
 export const revalidate = 20
 
-const getProductData = async (): Promise<Product[]> => {
+// const getProductData = async (): Promise<Product[]> => {
     
-    const res = await fetch("http://localhost:3000/api/products", {
-      next: { revalidate: 20 },
-      // cache:"no-store"
-    })
+//     const res = await fetch("http://localhost:3000/api/products", {
+//       next: { revalidate: 20 },
+//       // cache:"no-store"
+//     })
 
-    const result =  await res.json()
-    console.log(result,"aaaaa")
+//     const result =  await res.json()
+//     console.log(result,"aaaaa")
 
-    return result
-}
+//     return result
+// }
 
 const getProducts = async () => {
-    const products = await getProductData()
+    // const products = await getProductData()
     console.log(products,"products")
   return (
       <div className="min-h-screen max-w-6xl mx-auto  mt-4 px-4">
@@ -40,7 +41,6 @@ const getProducts = async () => {
 
 export default getProducts
 
-// app/products/page.tsx
 
 // import { Product } from '@/lib/product';
 

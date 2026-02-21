@@ -15,6 +15,7 @@ const Navbar = () => {
         <nav className="flex items-center gap-6 text-gray-700">
             <>
               <Link href="/products">Products</Link>
+              <Link href="/cart">Cart</Link>
               <Link href="/about">About</Link>
             </>
         </nav>
