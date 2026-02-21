@@ -2,9 +2,11 @@
 import { Product } from "@/lib/product"
 import Image from "next/image"
 import Link from "next/link"
+import { ToastContainer } from "react-toastify"
+import { AddToCartButton } from "./AddToCartButton"
 
 export default function ProductCard({ product }:{product:Product}) {
-
+console.log("Product",product)
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
       
@@ -40,10 +42,12 @@ export default function ProductCard({ product }:{product:Product}) {
           </span>
         </div>
 
-        <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl transition">
+        {/* <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl transition">
           Add to Cart
-        </button>
+        </button> */}
+        <AddToCartButton product={product}/>
       </div>
+      <ToastContainer/>
     </div>
   )
 }

@@ -2,12 +2,13 @@ import { Product } from '@/lib/product'
 import ProductCard from '../../components/ProductCard'
 // import { products } from '@/lib/products'
 
-export const revalidate = 60
+// export const revalidate = 20
 
 const getProductData = async (): Promise<Product[]> => {
     
     const res = await fetch("http://localhost:3000/api/products", {
-        next:{revalidate:60}
+      // next: { revalidate: 20 },
+      // cache:"no-store"
     })
 
     const result =  await res.json()

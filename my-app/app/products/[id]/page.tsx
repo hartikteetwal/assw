@@ -49,9 +49,12 @@ return (
         </div>
 
         <div className="mt-8 flex gap-4">
-          <AddToCartButton product={product} />
+          <div className="flex-2 w-50">
 
-          <button className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-xl transition">
+          <AddToCartButton product={product} />
+          </div>
+
+          <button className="flex-2 bg-gray-200 mt-4 hover:bg-gray-300 text-gray-800 rounded-xl transition">
             Buy Now
           </button>
         </div>
