@@ -5,7 +5,6 @@ import Link from "next/link"
 import { AddToCartButton } from "./AddToCartButton"
 
 export default function ProductCard({ product }:{product:Product}) {
-console.log("Product",product)
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
       

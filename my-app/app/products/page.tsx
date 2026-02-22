@@ -20,7 +20,6 @@ export const revalidate = 20
 
 const getProducts = async () => {
     // const products = await getProductData()
-    console.log(products,"products")
   return (
       <div className="min-h-screen max-w-6xl mx-auto  mt-4 px-4">
       

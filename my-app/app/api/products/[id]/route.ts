@@ -6,7 +6,8 @@ export async function GET(req:NextRequest,{params}:{params:Promise<{id:string}>}
 
     const {id}  = await params;
 
-    const product = products.find(e => e.id === id)
+    let product = products.find(e => e.id === id)
+
 
     if (!product) {
         return NextResponse.json({ message: 'Product not found' })

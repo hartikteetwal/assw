@@ -5,6 +5,11 @@ import { notFound } from "next/navigation"
 import { Suspense } from "react"
 import Image from "next/image"
 
+// export async function generateStaticParams(){
+//   return [{id:3}]
+// }
+
+export const revalidate = 10;
 
 interface PageProps{
     params: Promise<{

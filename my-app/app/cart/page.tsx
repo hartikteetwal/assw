@@ -1,15 +1,20 @@
 "use client"
 
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store/store'
 import Image from 'next/image'
+import { removeToCart } from '../store/cartSlice'
 
 const page = () => {
     const cartItems = useSelector((state: RootState) => state.cart.items)
+    const dispatch = useDispatch()
     const totalPrice = cartItems.reduce((total, item) => (
         total + item.price
     ),0)
-        console.log("cartItem", cartItems)
+
+    const handleRemove = (id: string)=>{
+        dispatch(removeToCart(id))
+    }
     return (
         <div className="min-h-screen bg-gray-100 p-6">
             <div className="max-w-5xl mx-auto">
@@ -50,7 +55,7 @@ const page = () => {
                                         </p>
                                     </div>
 
-                                    <button className="text-red-500 hover:text-red-700 font-medium">
+                                    <button className="text-red-500 hover:text-red-700 font-medium cursor-pointer" onClick={()=>handleRemove(item.id)}>
                                         Remove
                                     </button>
                                 </div>
