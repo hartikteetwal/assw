@@ -5,15 +5,13 @@ import { notFound } from "next/navigation"
 import { Suspense } from "react"
 import Image from "next/image"
 
+export const experimental_ppr = true;
+
+// Ye zaruri hai taaki Shell static ban sake
 export async function generateStaticParams() {
-  return [
-    { id: "4" },
-    { id: "5" },
-    { id: "6" },
-  ]
+  return [{ id: "4" }, { id: "5" }, { id: "6" }];
 }
 
-export const revalidate = 10;
 
 interface PageProps{
     params: Promise<{

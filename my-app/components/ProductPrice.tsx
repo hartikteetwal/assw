@@ -1,24 +1,21 @@
 import { getProduct } from "@/lib/getProduct"
-export const revalidate = 10;
-
-// import { Product } from "@/lib/product"
-
-// const getProduct = async (id: string):Promise<Product|undefined> => {
-//     const res = await fetch(`http://localhost:3000/api/products/${id}`)
-//     return res.json()
-// }
-
 
 const ProductPrice = async ({ id }:{ id: string }) => {
-    
-    const product = await getProduct(id)
+    // Dynamic banane ke liye force-dynamic ya no-store use karein
+    const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+        cache: 'no-store' // Ye is component ko dynamic bana dega
+    });
+    const product = await res.json();
 
-    if (!product) {
-        return <h2>Product not found</h2>
-    }
+    if (!product) return <h2>Product not found</h2>;
+
     return (
-        <h2>₹ {product.price}{" "}{new Date().toLocaleTimeString()}</h2>
+        <h2 className="text-2xl font-bold text-green-600">
+            ₹ {product.price} 
+            <span className="text-xs ml-2 text-red-500">
+                (Dynamic: {new Date().toLocaleTimeString()})
+            </span>
+        </h2>
     )
 }
-
-export default ProductPrice
+export default ProductPrice;
