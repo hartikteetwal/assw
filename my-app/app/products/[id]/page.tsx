@@ -5,9 +5,13 @@ import { notFound } from "next/navigation"
 import { Suspense } from "react"
 import Image from "next/image"
 
-// export async function generateStaticParams(){
-//   return [{id:3}]
-// }
+export async function generateStaticParams() {
+  return [
+    { id: "4" },
+    { id: "5" },
+    { id: "6" },
+  ]
+}
 
 export const revalidate = 10;
 
@@ -34,6 +38,7 @@ return (
         <div>
           <h1 className="text-3xl font-bold text-gray-800">
             {product.title}
+            <p>{new Date().toLocaleTimeString()}</p>
           </h1>
 
           <p className="mt-4 text-gray-600 leading-relaxed">

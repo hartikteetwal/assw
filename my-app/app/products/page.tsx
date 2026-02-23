@@ -1,7 +1,7 @@
 import { Product } from '@/lib/product'
 import ProductCard from '../../components/ProductCard'
 import { getProductData } from '@/lib/getProduct'
-import { products } from '@/lib/products'
+// import { products } from '@/lib/products'
 
 export const revalidate = 20
 
@@ -19,13 +19,14 @@ export const revalidate = 20
 // }
 
 const getProducts = async () => {
-    // const products = await getProductData()
+    const products = await getProductData()
   return (
       <div className="min-h-screen max-w-6xl mx-auto  mt-4 px-4">
       
       <h1 className="text-3xl font-bold mb-6">
         All Products
       </h1>
+      <p>{new Date().toLocaleTimeString()}</p>
 
       <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map(product => (
