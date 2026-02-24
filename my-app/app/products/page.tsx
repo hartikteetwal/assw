@@ -3,7 +3,7 @@ import ProductCard from '../../components/ProductCard'
 import { getProductData } from '@/lib/getProduct'
 // import { products } from '@/lib/products'
 
-export const revalidate = 20
+// export const revalidate = 20
 
 // const getProductData = async (): Promise<Product[]> => {
     

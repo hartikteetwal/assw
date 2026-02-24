@@ -1,11 +1,14 @@
+"use client"
+
 import { AddToCartButton } from "@/components/AddToCartButton"
 import ProductPrice from "@/components/ProductPrice"
 import { getProduct } from "@/lib/getProduct"
 import { notFound } from "next/navigation"
-import { Suspense } from "react"
+import { Suspense, useEffect, useState } from "react"
 import Image from "next/image"
 
-export const experimental_ppr = true;
+// export const experimental_ppr = true;
+// export const dynamic = "force-static"
 
 // Ye zaruri hai taaki Shell static ban sake
 export async function generateStaticParams() {
@@ -21,7 +24,13 @@ interface PageProps{
 
 const ProductPage = async ({ params }: PageProps) => {
     const {id} = await params;
-    const product = await getProduct(id)
+  const product = await getProduct(id)
+  
+  const [time, setTime] = useState("")
+
+  useEffect(() => {
+    setTime(new Date().toLocaleTimeString())
+  }, [])
     if (!product) return notFound()
 return (
   <div className="min-h-screen bg-gray-50 py-10 px-4">
@@ -36,7 +45,7 @@ return (
         <div>
           <h1 className="text-3xl font-bold text-gray-800">
             {product.title}
-            <p>{new Date().toLocaleTimeString()}</p>
+            <p>{time}</p>
           </h1>
 
           <p className="mt-4 text-gray-600 leading-relaxed">
