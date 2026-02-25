@@ -4,6 +4,7 @@ import ReduxProvider from "./store/ReduxProvider";
 import Navbar from "@/components/Navbar";
 import { ToastContainer } from "react-toastify";
 import { Footer } from "@/components/Footer";
+import { Suspense } from "react";
 
 
 export const metadata: Metadata = {
@@ -20,11 +21,13 @@ export default function RootLayout({
     <html lang="en">
       <body
       >
+        <Suspense>
         <ReduxProvider>
           <Navbar/>
           {children}
           <Footer/>
         </ReduxProvider>
+        </Suspense>
         <ToastContainer />
       </body>
     </html>
